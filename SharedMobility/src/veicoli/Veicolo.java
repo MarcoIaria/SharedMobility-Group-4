@@ -1,4 +1,4 @@
-package shared_mobility.SharedMobility.veicoli;
+package veicoli;
 
 public class Veicolo {
     private int id;
