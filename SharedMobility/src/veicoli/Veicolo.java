@@ -1,21 +1,30 @@
-package veicoli;
+package shared_mobility.SharedMobility.src.veicoli;
 
-public class Veicolo {
-    private int id;
-    private String tipoVeicolo;
-    private String targa;
-    private boolean affittato;
-    private String posizione;
-    private double livelloCarburante;
-    private double livelloBatteria;
+public abstract class Veicolo {
+    private static int idTot = 0;
+    protected int idVeicolo;
+    protected String posizione;
+    protected boolean isBoooked;
+    protected String tipoCarburante;
+    protected int livelloCarburante;
+    protected double tariffa;
 
-    public Veicolo(int id, String tipoVeicolo) {
-        this.id = id;
-        this.tipoVeicolo = tipoVeicolo;
-        this.affittato = false;
-        this.targa = "";
-        this.posizione = "";
-        this.livelloCarburante = 0.0;
-        this.livelloBatteria = 0.0;
+    public Veicolo(double tariffa, String posizione) {
+        idVeicolo = idTot++;
+        this.posizione = posizione;
+        isBoooked = false;
+        this.tipoCarburante = null;
+        livelloCarburante = 100;
+        this.tariffa = tariffa;
     }
+
+    public Veicolo(String tipoCarburante, double tariffa, String posizione) {
+        idVeicolo = idTot++;
+        this.posizione = posizione;
+        isBoooked = false;
+        this.tipoCarburante = tipoCarburante;
+        livelloCarburante = 100;
+        this.tariffa = tariffa;
+    }
+
 }

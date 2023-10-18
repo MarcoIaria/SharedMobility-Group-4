@@ -1,28 +1,33 @@
-package cliente;
+package shared_mobility.SharedMobility.src.cliente;
 
+import shared_mobility.SharedMobility.src.Patenti;
+
+import javax.xml.crypto.Data;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Cliente {
-    private int id;
+    private static int idTot = 0;
+    private int idUtente;
     private String nome;
     private String cognome;
-    private String dataDiNascita;
+    private Data dataDiNascita;
     private String codiceFiscale;
-    private List<String> patenti;
+    private List<Patenti> patenti;
     //Srtring patenti;
 
-    private boolean haCasco;
+    private boolean haCasco = false;
     private double credito;
 
-    public Cliente(int id, String nome, String cognome, String dataDiNascita, String codiceFiscale) {
-        this.id = id;
+    public Cliente(String nome, String cognome, Data dataDiNascita, String codiceFiscale, List<Patenti> patenti, boolean haCasco) {
+        this.idUtente = idTot++;
         this.nome = nome;
         this.cognome = cognome;
         this.dataDiNascita = dataDiNascita;
         this.codiceFiscale = codiceFiscale;
-        this.patenti = new ArrayList<>();
-        this.haCasco = false;
+        this.patenti = List.copyOf(patenti);
+        this.haCasco = haCasco;
         this.credito = 0.0;
     }
 }
