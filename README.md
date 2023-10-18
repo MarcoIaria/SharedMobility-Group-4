@@ -1,7 +1,9 @@
 # Compagnia Shared Mobility 🛵
 
+<a href="https://excalidraw.com/#room=1c397bd3476f54137b98,ytCVTfoWH7SC2Epu0e4ZQw"> ⏩⏩ Lavagna Excalidraw progettazione classi ✏️ ⏪⏪</a>
+
 <p align="center">
-<img src="https://enjoy.eni.com/social_tagging_1200x630.jpg" class="center">
+<img src="https://enjoy.eni.com/social_tagging_1200x630.jpg" class="center" width="400px">
 </p>
 
 
