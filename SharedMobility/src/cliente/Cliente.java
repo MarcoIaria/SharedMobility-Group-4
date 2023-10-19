@@ -1,4 +1,4 @@
-package shared_mobility.SharedMobility.src.cliente;
+package cliente;
 
 import shared_mobility.SharedMobility.src.Patenti;
 
