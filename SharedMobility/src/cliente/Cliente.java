@@ -15,8 +15,6 @@ public class Cliente {
     private Data dataDiNascita;
     private String codiceFiscale;
     private List<Patenti> patenti;
-    //Srtring patenti;
-
     private boolean haCasco = false;
     private double credito;
 
@@ -30,4 +28,6 @@ public class Cliente {
         this.haCasco = haCasco;
         this.credito = 0.0;
     }
+
+
 }
