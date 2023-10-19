@@ -8,7 +8,7 @@ public abstract class Veicolo {
     private static int idTot = 0;
     protected int idVeicolo;
     protected String posizione;
-    protected boolean isBoooked;
+    protected boolean isBooked;
     protected String tipoCarburante;
     protected int livelloCarburante;
     protected double tariffa;
@@ -16,7 +16,7 @@ public abstract class Veicolo {
     public Veicolo(double tariffa, String posizione) {
         idVeicolo = idTot++;
         this.posizione = posizione;
-        isBoooked = false;
+        isBooked = false;
         this.tipoCarburante = null;
         livelloCarburante = 100;
         this.tariffa = tariffa;
@@ -25,7 +25,7 @@ public abstract class Veicolo {
     public Veicolo(String tipoCarburante, double tariffa, String posizione) {
         idVeicolo = idTot++;
         this.posizione = posizione;
-        isBoooked = false;
+        isBooked = false;
         this.tipoCarburante = tipoCarburante;
         livelloCarburante = 100;
         this.tariffa = tariffa;
@@ -38,7 +38,7 @@ public abstract class Veicolo {
     }
 
     public boolean isBooked() {
-        return isBoooked;
+        return isBooked;
     }
 
     public int fuelStatus() {
@@ -50,10 +50,10 @@ public abstract class Veicolo {
     }
 
     public void booked(){
-        isBoooked = true;
+        isBooked = true;
     }
     public void free(){
-        isBoooked = false;
+        isBooked = false;
     }
     // location()
     // isBooked()
