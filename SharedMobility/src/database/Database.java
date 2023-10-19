@@ -76,31 +76,31 @@ public class Database {
     public Veicolo idFilter(int id) throws VehicleNotFound, VehicleBooked {
          for (Automobile automobile : automobili) {
              if (automobile.getIdVeicolo() == id) {
-                 if (automobile.isBoooked()) throw new VehicleBooked();
+                 if (automobile.isBooked()) throw new VehicleBooked();
                  return automobile;
              }
          }
          for (Scooter scooter : scooters) {
              if (scooter.getIdVeicolo() == id) {
-                 if (scooter.isBoooked()) throw new VehicleBooked();
+                 if (scooter.isBooked()) throw new VehicleBooked();
                  return scooter;
              }
          }
          for (MonopattinoElettrico monopattinoElettrico : monopattiniElettrici) {
              if (monopattinoElettrico.getIdVeicolo() == id) {
-                 if (monopattinoElettrico.isBoooked()) throw new VehicleBooked();
+                 if (monopattinoElettrico.isBooked()) throw new VehicleBooked();
                  return monopattinoElettrico;
              }
          }
          for (Furgoncino furgoncino : furgoncini) {
              if (furgoncino.getIdVeicolo() == id) {
-                 if (furgoncino.isBoooked()) throw new VehicleBooked();
+                 if (furgoncino.isBooked()) throw new VehicleBooked();
                  return furgoncino;
              }
          }
          for (Bicicletta bicicletta : biciclette) {
              if (bicicletta.getIdVeicolo() == id) {
-                 if (bicicletta.isBoooked()) throw new VehicleBooked();
+                 if (bicicletta.isBooked()) throw new VehicleBooked();
                  return bicicletta;
              }
          }
@@ -111,19 +111,19 @@ public class Database {
         ArrayList<Veicolo> veicoliDisponibili = new ArrayList<>();
 
         for (Automobile automobile : automobili) {
-            if (!automobile.isBoooked()) veicoliDisponibili.add(automobile);
+            if (!automobile.isBooked()) veicoliDisponibili.add(automobile);
         }
         for (Scooter scooter : scooters) {
-            if (!scooter.isBoooked()) veicoliDisponibili.add(scooter);
+            if (!scooter.isBooked()) veicoliDisponibili.add(scooter);
         }
         for (MonopattinoElettrico monopattinoElettrico : monopattiniElettrici) {
-            if (!monopattinoElettrico.isBoooked()) veicoliDisponibili.add(monopattinoElettrico);
+            if (!monopattinoElettrico.isBooked()) veicoliDisponibili.add(monopattinoElettrico);
         }
         for (Furgoncino furgoncino : furgoncini) {
-            if (!furgoncino.isBoooked()) veicoliDisponibili.add(furgoncino);
+            if (!furgoncino.isBooked()) veicoliDisponibili.add(furgoncino);
         }
         for (Bicicletta bicicletta : biciclette) {
-            if (!bicicletta.isBoooked()) veicoliDisponibili.add(bicicletta);
+            if (!bicicletta.isBooked()) veicoliDisponibili.add(bicicletta);
         }
         return veicoliDisponibili;
     }
