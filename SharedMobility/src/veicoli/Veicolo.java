@@ -1,4 +1,4 @@
-package shared_mobility.SharedMobility.src.veicoli;
+package veicoli;
 
 public abstract class Veicolo {
     private static int idTot = 0;

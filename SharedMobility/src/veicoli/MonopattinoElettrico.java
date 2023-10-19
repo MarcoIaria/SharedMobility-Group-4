@@ -1,4 +1,4 @@
-package shared_mobility.SharedMobility.src.veicoli;
+package veicoli;
 
 public class MonopattinoElettrico extends Veicolo {
     private String targa;

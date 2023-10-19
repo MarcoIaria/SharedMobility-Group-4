@@ -1,4 +1,4 @@
-package shared_mobility.SharedMobility.src.veicoli;
+package veicoli;
 
 import shared_mobility.SharedMobility.src.Patenti;
 
