@@ -1,5 +1,6 @@
 import cliente.Cliente;
 import database.Database;
+import veicoli.Bicicletta;
 import veicoli.Veicolo;
 
 public class SharedMobility {
@@ -17,28 +18,39 @@ public class SharedMobility {
 
     }
 
-    public void affittaVeicolo(Veicolo veicolo){
-        veicolo.booked();
-        //Se avessimo solamente un dato che appartiene al veicolo andrebbe cercato il veicolo nel database e poi verrebbe aggiornato da lì
+    public void affittaVeicolo(Veicolo veicolo, int tempo){
+        if(tempo<=5){
+            System.out.println("Il veicolo deve essere affittato per più di 5 minuti");
+            return;
+        }
+        if(veicolo instanceof Bicicletta){
+            veicolo.booked();
+        }
+        else {
+            veicolo.updateFuel(veicolo.getLivelloCarburante() - (tempo / 3));
+            veicolo.booked();
+        }
     }
 
 
     // metodo per cercare veicoli disponibili
     // ricerca(...)
 
-    // metodo per affittare un veicolo (almeno 5 min)
-    //affittaVeicolo(Veicolo veicolo)
 
-    // metodo per lasciare un veicolo
-    // lasciaVeicolo(Veicolo veicolo)
+
+
     public void lasciaVeicolo(Veicolo veicolo){
-        veicolo.free();
+      if(veicolo.getLivelloCarburante()<20)
+          ricaricaVeicolo(veicolo);
+
+
+          veicolo.free();
+
     }
 
     public void ricaricaVeicolo(Veicolo veicolo){
         veicolo.updateFuel(100);
     }
 
-    // metodo per ricaricare veicolo
-    // ricaricaVeicolo(Veicolo veicolo)
+
 }
