@@ -37,7 +37,7 @@ public abstract class Veicolo {
         return posizione;
     }
 
-    public boolean isBoooked() {
+    public boolean isBooked() {
         return isBoooked;
     }
 
