@@ -1,0 +1,4 @@
+/SharedMobility/.idea/
+/SharedMobility/out/
+/**/*.iml
+.gitignore
