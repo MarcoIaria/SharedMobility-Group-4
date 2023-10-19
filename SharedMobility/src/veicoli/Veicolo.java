@@ -44,6 +44,10 @@ public abstract class Veicolo {
     public int fuelStatus() {
         return livelloCarburante;
     }
+
+    public void updateFuel(int n){
+        livelloCarburante += n;
+    }
     // location()
     // isBooked()
     // fuelStatus()
