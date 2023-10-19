@@ -1,5 +1,7 @@
 package database;
 
+import Exceptions.VehicleBooked;
+import Exceptions.VehicleNotFound;
 import cliente.Cliente;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,6 +10,8 @@ import veicoli.*;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Objects;
 
 @Getter @Setter
 public class Database {
@@ -69,7 +73,95 @@ public class Database {
     }
 
     // filtri
-    // idFilter(int id)
-    // LocationFilter(String posizione)
+    public Veicolo idFilter(int id) throws VehicleNotFound, VehicleBooked {
+         for (Automobile automobile : automobili) {
+             if (automobile.getIdVeicolo() == id) {
+                 if (automobile.isBoooked()) throw new VehicleBooked();
+                 return automobile;
+             }
+         }
+         for (Scooter scooter : scooters) {
+             if (scooter.getIdVeicolo() == id) {
+                 if (scooter.isBoooked()) throw new VehicleBooked();
+                 return scooter;
+             }
+         }
+         for (MonopattinoElettrico monopattinoElettrico : monopattiniElettrici) {
+             if (monopattinoElettrico.getIdVeicolo() == id) {
+                 if (monopattinoElettrico.isBoooked()) throw new VehicleBooked();
+                 return monopattinoElettrico;
+             }
+         }
+         for (Furgoncino furgoncino : furgoncini) {
+             if (furgoncino.getIdVeicolo() == id) {
+                 if (furgoncino.isBoooked()) throw new VehicleBooked();
+                 return furgoncino;
+             }
+         }
+         for (Bicicletta bicicletta : biciclette) {
+             if (bicicletta.getIdVeicolo() == id) {
+                 if (bicicletta.isBoooked()) throw new VehicleBooked();
+                 return bicicletta;
+             }
+         }
+         throw new VehicleNotFound();
+     }
+
+    public ArrayList<Veicolo> availableVehicles() {
+        ArrayList<Veicolo> veicoliDisponibili = new ArrayList<>();
+
+        for (Automobile automobile : automobili) {
+            if (!automobile.isBoooked()) veicoliDisponibili.add(automobile);
+        }
+        for (Scooter scooter : scooters) {
+            if (!scooter.isBoooked()) veicoliDisponibili.add(scooter);
+        }
+        for (MonopattinoElettrico monopattinoElettrico : monopattiniElettrici) {
+            if (!monopattinoElettrico.isBoooked()) veicoliDisponibili.add(monopattinoElettrico);
+        }
+        for (Furgoncino furgoncino : furgoncini) {
+            if (!furgoncino.isBoooked()) veicoliDisponibili.add(furgoncino);
+        }
+        for (Bicicletta bicicletta : biciclette) {
+            if (!bicicletta.isBoooked()) veicoliDisponibili.add(bicicletta);
+        }
+        return veicoliDisponibili;
+    }
+
+    public ArrayList<Veicolo> locationFilter(String location) throws VehicleNotFound{
+        ArrayList<Veicolo> veicoliDisponibili = availableVehicles();
+        ArrayList<Veicolo> veicoliByLocation = new ArrayList<>();
+
+        for (Veicolo veicolo : veicoliDisponibili) {
+            if (veicolo.getPosizione().equals(location)) veicoliByLocation.add(veicolo);
+        }
+
+        if (veicoliByLocation.isEmpty()) throw new VehicleNotFound();
+        return veicoliByLocation;
+    }
+
+    public ArrayList<Veicolo> fuelFilter(String carburante) throws VehicleNotFound{
+        ArrayList<Veicolo> veicoliDisponibili = availableVehicles();
+        ArrayList<Veicolo> veicoliByCarburante = new ArrayList<>();
+
+        for (Veicolo veicolo : veicoliDisponibili) {
+            if (veicolo.getTipoCarburante().equals(carburante)) veicoliByCarburante.add(veicolo);
+        }
+
+        if (veicoliByCarburante.isEmpty()) throw new VehicleNotFound();
+        return veicoliByCarburante;
+    }
+
+    public ArrayList<Veicolo> priceFilter(double rangeMin, double rangeMax) throws VehicleNotFound{
+        ArrayList<Veicolo> veicoliDisponibili = availableVehicles();
+        ArrayList<Veicolo> veicoliByPrice = new ArrayList<>();
+
+        for (Veicolo veicolo : veicoliDisponibili) {
+            if (veicolo.getTariffa() >= rangeMin && veicolo.getTariffa() <= rangeMax) veicoliByPrice.add(veicolo);
+        }
+
+        if (veicoliByPrice.isEmpty()) throw new VehicleNotFound();
+        return veicoliByPrice;
+    }
 
 }
