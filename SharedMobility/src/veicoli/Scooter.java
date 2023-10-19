@@ -1,7 +1,10 @@
 package veicoli;
 
+import lombok.Getter;
+import lombok.Setter;
 import shared_mobility.SharedMobility.src.Patenti;
 
+@Getter @Setter
 public class Scooter extends Veicolo {
     private String targa;
     private Patenti patenteRichiesta;

@@ -1,5 +1,9 @@
 package veicoli;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter @Setter
 public abstract class Veicolo {
     private static int idTot = 0;
     protected int idVeicolo;
@@ -27,4 +31,9 @@ public abstract class Veicolo {
         this.tariffa = tariffa;
     }
 
+    public Veicolo() {}
+
+    // location()
+    // isBooked()
+    // fuelStatus()
 }
