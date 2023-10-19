@@ -33,6 +33,28 @@ public abstract class Veicolo {
 
     public Veicolo() {}
 
+    public String location() {
+        return posizione;
+    }
+
+    public boolean isBoooked() {
+        return isBoooked;
+    }
+
+    public int fuelStatus() {
+        return livelloCarburante;
+    }
+
+    public void updateFuel(int fuel){
+        livelloCarburante = fuel;
+    }
+
+    public void booked(){
+        isBoooked = true;
+    }
+    public void free(){
+        isBoooked = false;
+    }
     // location()
     // isBooked()
     // fuelStatus()
