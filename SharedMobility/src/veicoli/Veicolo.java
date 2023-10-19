@@ -33,7 +33,7 @@ public abstract class Veicolo {
 
     public Veicolo() {}
 
-    public String getPosizione() {
+    public String location() {
         return posizione;
     }
 
@@ -41,7 +41,7 @@ public abstract class Veicolo {
         return isBoooked;
     }
 
-    public int getLivelloCarburante() {
+    public int fuelStatus() {
         return livelloCarburante;
     }
     // location()
