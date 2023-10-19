@@ -46,6 +46,8 @@ public class Cliente {
     }
 
     // metodo per ricaricare credito
-    // addCredit(int credito)
+    public void addCredit(int credito) {
+        this.credito += credito;
+    }
 
 }
