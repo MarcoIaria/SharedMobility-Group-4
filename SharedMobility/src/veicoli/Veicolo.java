@@ -49,8 +49,11 @@ public abstract class Veicolo {
         livelloCarburante = fuel;
     }
 
-    public void updateStatus(boolean status){
-        isBoooked = status;
+    public void booked(){
+        isBoooked = true;
+    }
+    public void free(){
+        isBoooked = false;
     }
     // location()
     // isBooked()
