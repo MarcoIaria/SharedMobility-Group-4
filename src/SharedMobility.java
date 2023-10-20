@@ -1,14 +1,10 @@
+import Exceptions.VehicleBooked;
 import Exceptions.VehicleNotFound;
 import cliente.Cliente;
 import database.Database;
 import veicoli.Bicicletta;
 import veicoli.Veicolo;
-
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class SharedMobility {
@@ -55,7 +51,8 @@ public class SharedMobility {
         }
     }
 
-    public void affittaVeicolo(Veicolo veicolo, int tempo, Cliente cliente){
+    public void affittaVeicolo(Veicolo veicolo, int tempo, Cliente cliente) throws VehicleBooked {
+        if(veicolo.isBooked()) throw new VehicleBooked();
         if(tempo<=5){
             System.out.println("Il veicolo deve essere affittato per più di 5 minuti");
             return;
@@ -73,7 +70,7 @@ public class SharedMobility {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
+        }else System.out.println("Utente non esistente");
     }
 
 

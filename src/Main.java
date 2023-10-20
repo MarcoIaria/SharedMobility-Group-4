@@ -1,4 +1,4 @@
-import Exceptions.VehicleNotFound;
+
 import cliente.Cliente;
 import database.Database;
 import shared_mobility.SharedMobility.src.Patenti;
@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) throws VehicleNotFound {
+    public static void main(String[] args){
         List<Patenti> patenti = new ArrayList<>();
         patenti.add(Patenti.A);
 
@@ -33,8 +33,8 @@ public class Main {
 
         System.out.println(db);
         SharedMobility gestionale = new SharedMobility(db);
-        Cliente cliente = new Cliente("Marco", "Rossi", new Date(1988, 04, 12), "Co", patenti, true);
-        Cliente cliente2 = new Cliente("Marco", "Rossi", new Date(1988, 04, 12), "BS6", patenti, true);
+        Cliente cliente = new Cliente("Marco", "Rossi", new Date(1988, 4, 12), "Co", patenti, true);
+        Cliente cliente2 = new Cliente("Marco", "Rossi", new Date(1988, 4, 12), "BS6", patenti, true);
         gestionale.clientSignUp(cliente);
         gestionale.clientSignUp(cliente2);
 

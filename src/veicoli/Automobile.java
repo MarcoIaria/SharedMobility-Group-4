@@ -1,6 +1,5 @@
 package veicoli;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import shared_mobility.SharedMobility.src.Patenti;

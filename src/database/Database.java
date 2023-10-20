@@ -1,17 +1,10 @@
 package database;
 
-import Exceptions.VehicleBooked;
 import Exceptions.VehicleNotFound;
-import cliente.Cliente;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 import veicoli.*;
-
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Objects;
 
 @Getter @Setter
 public class Database {

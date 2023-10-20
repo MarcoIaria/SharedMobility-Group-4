@@ -1,12 +1,7 @@
 package cliente;
 
 import lombok.Getter;
-import lombok.ToString;
 import shared_mobility.SharedMobility.src.Patenti;
-
-import javax.xml.crypto.Data;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
