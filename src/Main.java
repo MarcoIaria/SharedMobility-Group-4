@@ -12,12 +12,8 @@ public class Main {
     public static void main(String[] args) throws VehicleNotFound {
         List<Patenti> patenti = new ArrayList<>();
         patenti.add(Patenti.A);
-        Cliente cliente = new Cliente("Marco", "Rossi", new Date(1988, 04, 12), "", patenti, true);
-
-        System.out.println(cliente.toString());
 
         Database db = new Database();
-        db.putCliente(cliente);
         Automobile veicolo1 = new Automobile("ABC", "Benzina", 1, "Roma");
         Automobile veicolo2 = new Automobile("ABC", "Metano", 2, "Milano");
         Automobile veicolo3 = new Automobile("ABC", "Diesel", 0.4, "Torino");
@@ -34,13 +30,19 @@ public class Main {
         db.putVeicolo(veicolo6);
         db.putVeicolo(veicolo7);
         db.putVeicolo(veicolo8);
+
         System.out.println(db);
         SharedMobility gestionale = new SharedMobility(db);
-        gestionale.search(0);
-        gestionale.affittaVeicolo(veicolo1, 50);
-        gestionale.lasciaVeicolo(veicolo1);
-        gestionale.search(1);
-        gestionale.search(2);
-        gestionale.search(3);
+        Cliente cliente = new Cliente("Marco", "Rossi", new Date(1988, 04, 12), "Co", patenti, true);
+        Cliente cliente2 = new Cliente("Marco", "Rossi", new Date(1988, 04, 12), "BS6", patenti, true);
+        gestionale.clientSignUp(cliente);
+        gestionale.clientSignUp(cliente2);
+//        gestionale.search(0);
+//        gestionale.affittaVeicolo(veicolo1, 50);
+//        gestionale.lasciaVeicolo(veicolo1);
+//        gestionale.search(1);
+//        gestionale.search(2);
+//        gestionale.search(3);
+
     }
 }

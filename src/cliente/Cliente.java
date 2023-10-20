@@ -1,5 +1,6 @@
 package cliente;
 
+import lombok.Getter;
 import lombok.ToString;
 import shared_mobility.SharedMobility.src.Patenti;
 
@@ -9,6 +10,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+@Getter
 public class Cliente {
     private static int idTot = 0;
     private int idUtente;
@@ -35,10 +37,10 @@ public class Cliente {
     public String toString() {
         return "Cliente{" +
                 "idUtente=" + idUtente +
+                ", codiceFiscale='" + codiceFiscale + '\'' +
                 ", nome='" + nome + '\'' +
                 ", cognome='" + cognome + '\'' +
                 ", dataDiNascita=" + dataDiNascita +
-                ", codiceFiscale='" + codiceFiscale + '\'' +
                 ", patenti=" + patenti +
                 ", haCasco=" + haCasco +
                 ", credito=" + credito +

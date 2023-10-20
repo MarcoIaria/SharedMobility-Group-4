@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Getter @Setter @ToString
+@Getter @Setter
 public class Bicicletta extends Veicolo {
     private static final boolean NEED_HELMET = true;
 

@@ -1,0 +1,2 @@
+Cliente{idUtente=0, codiceFiscale='Co', nome='Marco', cognome='Rossi', dataDiNascita=Sat May 12 00:00:00 CEST 3888, patenti=[A], haCasco=true, credito=0.0}
+Cliente{idUtente=1, codiceFiscale='BS6', nome='Marco', cognome='Rossi', dataDiNascita=Sat May 12 00:00:00 CEST 3888, patenti=[A], haCasco=true, credito=0.0}

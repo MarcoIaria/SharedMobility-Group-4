@@ -16,7 +16,6 @@ import java.util.Objects;
 @Getter @Setter
 public class Database {
 
-    private LinkedList<Cliente> clienti;
     private ArrayList<Automobile> automobili;
     private ArrayList<Scooter> scooters;
     private ArrayList<MonopattinoElettrico> monopattiniElettrici;
@@ -24,7 +23,6 @@ public class Database {
     private ArrayList<Bicicletta> biciclette;
 
     public Database() {
-        clienti = new LinkedList<>();
         automobili = new ArrayList<>();
         scooters = new ArrayList<>();
         monopattiniElettrici = new ArrayList<>();
@@ -50,20 +48,9 @@ public class Database {
             System.out.println(e.getMessage());
         }
     }
-
-    public void putCliente(Cliente cliente) {
-        try {
-            clienti.add(cliente);
-        } catch (NullPointerException e){
-            System.out.println("Invalid user.");
-            System.out.println(e.getMessage());
-        }
-    }
-
     @Override
     public String toString() {
-        return  "clienti=" + clienti + "\n" +
-                "automobili=" + automobili + "\n" +
+        return  "automobili=" + automobili + "\n" +
                 "scooters=" + scooters + "\n" +
                 "monopattiniElettrici=" + monopattiniElettrici + "\n" +
                 "furgoncini=" + furgoncini + "\n" +

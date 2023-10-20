@@ -4,6 +4,9 @@ import database.Database;
 import veicoli.Bicicletta;
 import veicoli.Veicolo;
 
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -24,8 +27,24 @@ public class SharedMobility {
     // clientSignUp()
 
     public void clientSignUp(Cliente cliente){
-        db.putCliente(cliente);
-
+        File file = new File("src/files/clienti.txt");
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))){
+            String line = bufferedReader.readLine();
+            while (line != null){
+                if (line.contains(cliente.getCodiceFiscale())){
+                    System.out.println("Utente gia esistente");
+                    return;
+                }
+                line = bufferedReader.readLine();
+            }
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true))){
+            bufferedWriter.write(cliente + "\n");
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     public void affittaVeicolo(Veicolo veicolo, int tempo){
