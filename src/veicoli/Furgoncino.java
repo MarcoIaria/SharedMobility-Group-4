@@ -14,4 +14,18 @@ public class Furgoncino extends Veicolo {
         this.targa = targa;
         patenteRichiesta = Patenti.C;
     }
+
+    @Override
+    public String toString() {
+        return "Furgoncino{" +
+                "idVeicolo= " + idVeicolo +
+                ", targa='" + targa + '\'' +
+                ", patenteRichiesta=" + patenteRichiesta +
+                ", posizione='" + posizione + '\'' +
+                ", isBooked=" + isBooked +
+                ", tipoCarburante='" + tipoCarburante + '\'' +
+                ", livelloCarburante=" + livelloCarburante +
+                ", tariffa=" + tariffa +
+                "}\n";
+    }
 }

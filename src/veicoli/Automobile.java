@@ -23,14 +23,14 @@ public class Automobile extends Veicolo {
     @Override
     public String toString() {
         return "Automobile{" +
-                "targa='" + targa + '\'' +
+                "idVeicolo=" + idVeicolo+
+                ", targa='" + targa + '\'' +
                 ", patenteRichiesta=" + patenteRichiesta +
-                ", idVeicolo=" + idVeicolo +
                 ", posizione='" + posizione + '\'' +
                 ", isBooked=" + isBooked +
                 ", tipoCarburante='" + tipoCarburante + '\'' +
                 ", livelloCarburante=" + livelloCarburante +
                 ", tariffa=" + tariffa +
-                '}';
+                "}\n";
     }
 }

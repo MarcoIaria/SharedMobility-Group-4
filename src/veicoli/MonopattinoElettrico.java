@@ -12,4 +12,17 @@ public class MonopattinoElettrico extends Veicolo {
         super("Elettrico", tariffa, posizione);
         this.targa = targa;
     }
+
+    @Override
+    public String toString() {
+        return "MonopattinoElettrico{" +
+                "idVeicolo=" + idVeicolo +
+                ", targa='" + targa + '\'' +
+                ", posizione='" + posizione + '\'' +
+                ", isBooked=" + isBooked +
+                ", tipoCarburante='" + tipoCarburante + '\'' +
+                ", livelloCarburante=" + livelloCarburante +
+                ", tariffa=" + tariffa +
+                "}\n";
+    }
 }

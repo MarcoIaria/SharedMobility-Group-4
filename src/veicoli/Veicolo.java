@@ -2,8 +2,9 @@ package veicoli;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
-@Getter @Setter
+@Getter @Setter @ToString
 public abstract class Veicolo {
     private static int idTot = 0;
     protected int idVeicolo;
@@ -15,18 +16,18 @@ public abstract class Veicolo {
 
     public Veicolo(double tariffa, String posizione) {
         idVeicolo = idTot++;
-        this.posizione = posizione;
+        this.posizione = posizione.toLowerCase();
         isBooked = false;
-        this.tipoCarburante = null;
+        this.tipoCarburante = "";
         livelloCarburante = 100;
         this.tariffa = tariffa;
     }
 
     public Veicolo(String tipoCarburante, double tariffa, String posizione) {
         idVeicolo = idTot++;
-        this.posizione = posizione;
+        this.posizione = posizione.toLowerCase();
         isBooked = false;
-        this.tipoCarburante = tipoCarburante;
+        this.tipoCarburante = tipoCarburante.toLowerCase();
         livelloCarburante = 100;
         this.tariffa = tariffa;
     }

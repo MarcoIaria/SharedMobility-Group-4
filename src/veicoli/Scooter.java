@@ -14,4 +14,16 @@ public class Scooter extends Veicolo {
         super(tipoCarburante, tariffa, posizione);
         this.targa = targa;
     }
+    public String toString() {
+        return "Scooter{" +
+                "idVeicolo= " + idVeicolo +
+                ", targa='" + targa + '\'' +
+                ", patenteRichiesta=" + patenteRichiesta +
+                ", posizione='" + posizione + '\'' +
+                ", isBooked=" + isBooked +
+                ", tipoCarburante='" + tipoCarburante + '\'' +
+                ", livelloCarburante=" + livelloCarburante +
+                ", tariffa=" + tariffa +
+                "}\n";
+    }
 }

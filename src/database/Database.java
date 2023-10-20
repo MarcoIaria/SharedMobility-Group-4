@@ -130,6 +130,8 @@ public class Database {
         ArrayList<Veicolo> veicoliDisponibili = availableVehicles();
         ArrayList<Veicolo> veicoliByLocation = new ArrayList<>();
 
+        location = location.toLowerCase();
+
         for (Veicolo veicolo : veicoliDisponibili) {
             if (veicolo.getPosizione().equals(location)) veicoliByLocation.add(veicolo);
         }
@@ -141,6 +143,8 @@ public class Database {
     public ArrayList<Veicolo> fuelFilter(String carburante) throws VehicleNotFound{
         ArrayList<Veicolo> veicoliDisponibili = availableVehicles();
         ArrayList<Veicolo> veicoliByCarburante = new ArrayList<>();
+
+        carburante = carburante.toLowerCase();
 
         for (Veicolo veicolo : veicoliDisponibili) {
             if (veicolo.getTipoCarburante().equals(carburante)) veicoliByCarburante.add(veicolo);
