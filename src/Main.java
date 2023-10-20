@@ -37,6 +37,7 @@ public class Main {
         Cliente cliente2 = new Cliente("Marco", "Rossi", new Date(1988, 04, 12), "BS6", patenti, true);
         gestionale.clientSignUp(cliente);
         gestionale.clientSignUp(cliente2);
+
 //        gestionale.search(0);
 //        gestionale.affittaVeicolo(veicolo1, 50);
 //        gestionale.lasciaVeicolo(veicolo1);

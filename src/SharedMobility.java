@@ -14,6 +14,8 @@ import java.util.Scanner;
 public class SharedMobility {
     Scanner sc = new Scanner(System.in);
     private Database db;
+    private File fileClienti = new File("src/files/clienti.txt");
+    private File fileAffitti = new File("src/files/affitti.txt");
 
     public SharedMobility() {
         db = new Database();
@@ -26,28 +28,34 @@ public class SharedMobility {
     // metodo per registrare utente
     // clientSignUp()
 
-    public void clientSignUp(Cliente cliente){
-        File file = new File("src/files/clienti.txt");
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file))){
+    public boolean clientExist(Cliente cliente){
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileClienti))){
             String line = bufferedReader.readLine();
             while (line != null){
                 if (line.contains(cliente.getCodiceFiscale())){
                     System.out.println("Utente gia esistente");
-                    return;
+                    return true;
                 }
                 line = bufferedReader.readLine();
             }
         } catch (IOException e){
             e.printStackTrace();
         }
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file, true))){
+        return false;
+    }
+
+    public void clientSignUp(Cliente cliente){
+        if (clientExist(cliente)){
+            return;
+        }
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileClienti, true))){
             bufferedWriter.write(cliente + "\n");
         }catch (IOException e){
             e.printStackTrace();
         }
     }
 
-    public void affittaVeicolo(Veicolo veicolo, int tempo){
+    public void affittaVeicolo(Veicolo veicolo, int tempo, Cliente cliente){
         if(tempo<=5){
             System.out.println("Il veicolo deve essere affittato per più di 5 minuti");
             return;
@@ -58,6 +66,13 @@ public class SharedMobility {
         else {
             veicolo.updateFuel(veicolo.getLivelloCarburante() - (tempo / 3));
             veicolo.booked();
+        }
+        if (clientExist(cliente)) {
+            try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileAffitti, true))) {
+                bufferedWriter.write(cliente.getIdUtente() + veicolo.getIdVeicolo() + "\n");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
