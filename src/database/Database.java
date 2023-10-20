@@ -1,5 +1,6 @@
 package database;
 
+import Exceptions.VehicleBooked;
 import Exceptions.VehicleNotFound;
 import lombok.Getter;
 import lombok.Setter;
@@ -51,34 +52,34 @@ public class Database {
     }
 
     // filtri
-    public Veicolo idFilter(int id) throws VehicleNotFound{
+    public Veicolo idFilter(int id) throws VehicleNotFound, VehicleBooked {
          for (Automobile automobile : automobili) {
              if (automobile.getIdVeicolo() == id) {
-                 if (automobile.isBooked()) return null;
+                 if (automobile.isBooked()) throw new VehicleBooked();
                  return automobile;
              }
          }
          for (Scooter scooter : scooters) {
              if (scooter.getIdVeicolo() == id) {
-                 if (scooter.isBooked()) return null;
+                 if (scooter.isBooked()) throw new VehicleBooked();
                  return scooter;
              }
          }
          for (MonopattinoElettrico monopattinoElettrico : monopattiniElettrici) {
              if (monopattinoElettrico.getIdVeicolo() == id) {
-                 if (monopattinoElettrico.isBooked()) return null;
+                 if (monopattinoElettrico.isBooked()) throw new VehicleBooked();
                  return monopattinoElettrico;
              }
          }
          for (Furgoncino furgoncino : furgoncini) {
              if (furgoncino.getIdVeicolo() == id) {
-                 if (furgoncino.isBooked()) return null;
+                 if (furgoncino.isBooked()) throw new VehicleBooked();
                  return furgoncino;
              }
          }
          for (Bicicletta bicicletta : biciclette) {
              if (bicicletta.getIdVeicolo() == id) {
-                 if (bicicletta.isBooked()) return null;
+                 if (bicicletta.isBooked()) throw new VehicleBooked();
                  return bicicletta;
              }
          }

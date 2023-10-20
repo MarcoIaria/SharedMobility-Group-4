@@ -61,6 +61,7 @@ public abstract class Veicolo {
         return idVeicolo;
     }
 
+
     // location()
     // isBooked()
     // fuelStatus()

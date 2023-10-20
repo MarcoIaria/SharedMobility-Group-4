@@ -1,4 +1,6 @@
 
+import Exceptions.VehicleBooked;
+import Exceptions.VehicleNotFound;
 import cliente.Cliente;
 import database.Database;
 import shared_mobility.SharedMobility.src.Patenti;
@@ -12,35 +14,18 @@ public class Main {
     public static void main(String[] args){
         List<Patenti> patenti = new ArrayList<>();
         patenti.add(Patenti.A);
-
-        Database db = new Database();
-        Automobile veicolo1 = new Automobile("ABC", "Benzina", 1, "Roma");
-        Automobile veicolo2 = new Automobile("ABC", "Metano", 2, "Milano");
-        Automobile veicolo3 = new Automobile("ABC", "Diesel", 0.4, "Torino");
-        Automobile veicolo4 = new Automobile("ABC", "Benzina", 1, "Roma");
-        db.putVeicolo(veicolo1);
-        db.putVeicolo(veicolo2);
-        db.putVeicolo(veicolo3);
-        db.putVeicolo(veicolo4);
-        Bicicletta veicolo5 = new Bicicletta(0.1, "Pisa");
-        Furgoncino veicolo6 = new Furgoncino("ABC", "Metano", 5, "Milano");
-        MonopattinoElettrico veicolo7 = new MonopattinoElettrico("CDF",0.1, "Pisa");
-        Scooter veicolo8 = new Scooter("ABC", "Benzina", 0.5, "Milano");
-        db.putVeicolo(veicolo5);
-        db.putVeicolo(veicolo6);
-        db.putVeicolo(veicolo7);
-        db.putVeicolo(veicolo8);
-
-        System.out.println(db);
-        SharedMobility gestionale = new SharedMobility(db);
+        SharedMobility gestionale = new SharedMobility();
         Cliente cliente = new Cliente("Marco", "Rossi", new Date(1988, 4, 12), "Co", patenti, true);
         Cliente cliente2 = new Cliente("Marco", "Rossi", new Date(1988, 4, 12), "BS6", patenti, true);
-        gestionale.clientSignUp(cliente);
-        gestionale.clientSignUp(cliente2);
-
 //        gestionale.search(0);
-//        gestionale.affittaVeicolo(veicolo1, 50);
-//        gestionale.lasciaVeicolo(veicolo1);
+        try {
+            gestionale.affittaVeicoloByID(1, 50, cliente);
+            gestionale.affittaVeicoloByID(2, 4, cliente2);
+            gestionale.affittaVeicoloByID(7, 15, cliente2);
+            gestionale.affittaVeicoloByID(7, 15, cliente2);
+        }catch (VehicleNotFound | VehicleBooked e){
+            System.out.println(e.getMessage());
+        }
 //        gestionale.search(1);
 //        gestionale.search(2);
 //        gestionale.search(3);

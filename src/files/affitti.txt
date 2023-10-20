@@ -1,0 +1,8 @@
+ID Cliente: 1, ID Veicolo: 7, Durata: 15 minuti
+ID Cliente: 1, ID Veicolo: 7, Durata: 15 minuti
+ID Cliente: 1, ID Veicolo: 7, Durata: 15 minuti
+ID Cliente: 1, ID Veicolo: 7, Durata: 15 minuti
+ID Cliente: 1, ID Veicolo: 7, Durata: 15 minuti
+ID Cliente: 1, ID Veicolo: 7, Durata: 15 minuti
+ID Cliente: 1, ID Veicolo: 7, Durata: 15 minuti
+ID Cliente: 1, ID Veicolo: 7, Durata: 15 minuti
