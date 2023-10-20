@@ -62,45 +62,43 @@ public class Database {
 
     @Override
     public String toString() {
-        return "Database{" +
-                "clienti=" + clienti +
-                ", automobili=" + automobili +
-                ", scooters=" + scooters +
-                ", monopattiniElettrici=" + monopattiniElettrici +
-                ", furgoncini=" + furgoncini +
-                ", biciclette=" + biciclette +
-                '}';
+        return  "clienti=" + clienti + "\n" +
+                "automobili=" + automobili + "\n" +
+                "scooters=" + scooters + "\n" +
+                "monopattiniElettrici=" + monopattiniElettrici + "\n" +
+                "furgoncini=" + furgoncini + "\n" +
+                "biciclette=" + biciclette;
     }
 
     // filtri
-    public Veicolo idFilter(int id) throws VehicleNotFound, VehicleBooked {
+    public Veicolo idFilter(int id) throws VehicleNotFound{
          for (Automobile automobile : automobili) {
              if (automobile.getIdVeicolo() == id) {
-                 if (automobile.isBooked()) throw new VehicleBooked();
+                 if (automobile.isBooked()) return null;
                  return automobile;
              }
          }
          for (Scooter scooter : scooters) {
              if (scooter.getIdVeicolo() == id) {
-                 if (scooter.isBooked()) throw new VehicleBooked();
+                 if (scooter.isBooked()) return null;
                  return scooter;
              }
          }
          for (MonopattinoElettrico monopattinoElettrico : monopattiniElettrici) {
              if (monopattinoElettrico.getIdVeicolo() == id) {
-                 if (monopattinoElettrico.isBooked()) throw new VehicleBooked();
+                 if (monopattinoElettrico.isBooked()) return null;
                  return monopattinoElettrico;
              }
          }
          for (Furgoncino furgoncino : furgoncini) {
              if (furgoncino.getIdVeicolo() == id) {
-                 if (furgoncino.isBooked()) throw new VehicleBooked();
+                 if (furgoncino.isBooked()) return null;
                  return furgoncino;
              }
          }
          for (Bicicletta bicicletta : biciclette) {
              if (bicicletta.getIdVeicolo() == id) {
-                 if (bicicletta.isBooked()) throw new VehicleBooked();
+                 if (bicicletta.isBooked()) return null;
                  return bicicletta;
              }
          }

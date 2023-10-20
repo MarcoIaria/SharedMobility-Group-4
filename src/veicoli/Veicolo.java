@@ -55,6 +55,11 @@ public abstract class Veicolo {
     public void free(){
         isBooked = false;
     }
+
+    public int getIdVeicolo() {
+        return idVeicolo;
+    }
+
     // location()
     // isBooked()
     // fuelStatus()

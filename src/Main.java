@@ -1,6 +1,7 @@
 import cliente.Cliente;
 import database.Database;
 import shared_mobility.SharedMobility.src.Patenti;
+import veicoli.Automobile;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,6 +17,18 @@ public class Main {
 
         Database db = new Database();
         db.putCliente(cliente);
+        Automobile veicolo1 = new Automobile("ABC", "Benzina", 1, "Roma");
+        db.putVeicolo(veicolo1);
+        SharedMobility gestionale = new SharedMobility(db);
+        gestionale.search();
+        System.out.println(db.toString());
+
+        gestionale.affittaVeicolo(veicolo1, 50);
+        gestionale.search();
+        System.out.println(db.toString());
+
+        gestionale.lasciaVeicolo(veicolo1);
+        gestionale.search();
         System.out.println(db.toString());
     }
 }

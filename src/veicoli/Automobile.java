@@ -19,4 +19,18 @@ public class Automobile extends Veicolo {
         this.targa = targa;
         patenteRichiesta = Patenti.B;
     }
+
+    @Override
+    public String toString() {
+        return "Automobile{" +
+                "targa='" + targa + '\'' +
+                ", patenteRichiesta=" + patenteRichiesta +
+                ", idVeicolo=" + idVeicolo +
+                ", posizione='" + posizione + '\'' +
+                ", isBooked=" + isBooked +
+                ", tipoCarburante='" + tipoCarburante + '\'' +
+                ", livelloCarburante=" + livelloCarburante +
+                ", tariffa=" + tariffa +
+                '}';
+    }
 }

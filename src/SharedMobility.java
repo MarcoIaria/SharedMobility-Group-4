@@ -3,11 +3,18 @@ import database.Database;
 import veicoli.Bicicletta;
 import veicoli.Veicolo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SharedMobility {
     private Database db;
 
     public SharedMobility() {
         db = new Database();
+    }
+
+    public SharedMobility(Database db) {
+        this.db = db;
     }
 
     // metodo per registrare utente
@@ -35,7 +42,13 @@ public class SharedMobility {
 
     // metodo per cercare veicoli disponibili
     // ricerca(...)
+    public void search(int i){
+        switch (i){
+            case 0:
+                if (db.availableVehicles() == null) return;
 
+        }
+    }
 
 
 
@@ -44,7 +57,7 @@ public class SharedMobility {
           ricaricaVeicolo(veicolo);
 
 
-          veicolo.free();
+      veicolo.free();
 
     }
 
